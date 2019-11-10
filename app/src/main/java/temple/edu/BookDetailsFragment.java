@@ -15,10 +15,10 @@ public class BookDetailsFragment extends Fragment {
 
     private TextView tvBook;
 
-    public static BookDetailsFragment newInstance(String title) {
+    public static BookDetailsFragment newInstance(Book book) {
         BookDetailsFragment bookDetailsFragment = new BookDetailsFragment();
         Bundle args = new Bundle();
-        args.putString("title", title);
+        args.putSerializable("book",book);
         bookDetailsFragment.setArguments(args);
         return bookDetailsFragment;
     }
@@ -27,14 +27,18 @@ public class BookDetailsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_book_detail, container, false);
         tvBook = view.findViewById(R.id.tv_name);
-        String title = getArguments().getString("title");
-        displayBook(title);
+        if (getArguments()!=null) {
+            Book book = (Book) getArguments().getSerializable("book");
+            if (book != null) {
+                displayBook(book);
+            }
+        }
         return view;
     }
 
 
-    public void displayBook(String title) {
-        tvBook.setText(title);
+    public void displayBook(Book book) {
+        tvBook.setText(book.title);
     }
 
 

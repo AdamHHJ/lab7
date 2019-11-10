@@ -12,4 +12,24 @@
         android:layout_height="match_parent">
 
     </FrameLayout>
+    <EditText
+        android:id="@+id/et_content"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:ems="10"
+        app:layout_constraintEnd_toStartOf="@id/bt_search"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
+    <Button
+        android:id="@+id/bt_search"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Search"
+        android:textAllCaps="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/et_content"
+        app:layout_constraintTop_toTopOf="parent"
+     />
 </androidx.constraintlayout.widget.ConstraintLayout>
